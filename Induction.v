@@ -270,7 +270,15 @@ Fixpoint double (n:nat) :=
 
 Lemma double_plus : forall n, double n = n + n .
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intro n.
+  induction n.
+    -simpl.
+     reflexivity.
+    -simpl.
+     rewrite IHn.
+     rewrite plus_n_Sm.
+     reflexivity.
+Qed.
 (** [] *)
 
 (** **** Exercise: 2 stars, standard, optional (evenb_S) 
