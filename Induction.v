@@ -689,7 +689,16 @@ Theorem all3_spec : forall b c : bool,
                (negb c))
   = true.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros b c.
+  destruct b.
+    destruct c.
+      -simpl.
+       reflexivity.
+      -simpl.
+       reflexivity.
+      -simpl.
+       reflexivity.
+Qed.
 
 Theorem mult_plus_distr_r : forall n m p : nat,
   (n + m) * p = (n * p) + (m * p).
