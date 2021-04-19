@@ -567,6 +567,18 @@ Proof.
      reflexivity.
 Qed.
 
+Lemma mult_n_Sm : forall (n m : nat), n * S m = n + n * m.
+
+Proof.
+  intros n m.
+  induction n.
+    -reflexivity.
+    -simpl.
+     rewrite plus_swap.
+     rewrite IHn.
+     reflexivity.
+Qed.
+
 Theorem mult_comm : forall m n : nat,
   m * n = n * m.
 Proof.
