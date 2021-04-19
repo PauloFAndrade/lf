@@ -626,7 +626,14 @@ Qed.
 Theorem zero_nbeq_S : forall n:nat,
   0 =? (S n) = false.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intro n.
+  destruct n.
+  -simpl.
+   reflexivity.
+  -simpl.
+   reflexivity.
+Qed.
+
 
 Theorem andb_false_r : forall b : bool,
   andb b false = false.
