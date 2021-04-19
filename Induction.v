@@ -638,7 +638,13 @@ Qed.
 Theorem andb_false_r : forall b : bool,
   andb b false = false.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intro b.
+  destruct b.
+    -simpl.
+     reflexivity.
+    -simpl.
+     reflexivity.
+Qed.
 
 Theorem plus_ble_compat_l : forall n m p : nat,
   n <=? m = true -> (p + n) <=? (p + m) = true.
