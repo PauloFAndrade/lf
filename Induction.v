@@ -544,7 +544,12 @@ Qed.
 Theorem plus_swap : forall n m p : nat,
   n + (m + p) = m + (n + p).
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros n m p.
+  rewrite <- plus_comm.
+  rewrite <- plus_assoc.
+  rewrite (ajuda_swap p n).
+  reflexivity.
+Qed.
 
 (** Now prove commutativity of multiplication.  You will probably
     want to define and prove a "helper" theorem to be used
