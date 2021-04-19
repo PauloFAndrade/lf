@@ -649,7 +649,19 @@ Qed.
 Theorem plus_ble_compat_l : forall n m p : nat,
   n <=? m = true -> (p + n) <=? (p + m) = true.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros n m p.
+  induction p.
+    -intros aux.
+     simpl.
+     rewrite aux.
+     reflexivity.
+    -intros aux.
+     simpl.
+     rewrite IHp .
+     +reflexivity.
+     +rewrite aux.
+      reflexivity.
+Qed.
 
 Theorem S_nbeq_0 : forall n:nat,
   (S n) =? 0 = false.
