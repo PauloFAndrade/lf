@@ -534,6 +534,13 @@ Definition manual_grade_for_plus_comm_informal : option (nat*string) := None.
     Use [assert] to help prove [plus_swap].  You don't need to
     use induction yet. *)
 
+Lemma ajuda_swap : forall n p : nat, n+p = p+n.
+Proof.
+  intros n p.
+  rewrite plus_comm.
+  reflexivity.
+Qed.
+
 Theorem plus_swap : forall n m p : nat,
   n + (m + p) = m + (n + p).
 Proof.
