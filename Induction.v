@@ -293,7 +293,15 @@ Qed.
 Theorem evenb_S : forall n : nat,
   evenb (S n) = negb (evenb n).
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intro n.
+  induction n.
+    -simpl.
+     reflexivity.
+    -rewrite IHn.
+     simpl.
+     rewrite negb_involutive.
+     reflexivity.
+Qed.
 (** [] *)
 
 (** **** Exercise: 1 star, standard, optional (destruct_induction) 
