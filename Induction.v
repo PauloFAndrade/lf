@@ -673,7 +673,14 @@ Qed.
 
 Theorem mult_1_l : forall n:nat, 1 * n = n.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intro n.
+  destruct n.
+    -simpl.
+     reflexivity.
+    -simpl.
+     rewrite <- plus_n_O.
+     reflexivity.
+Qed.
 
 Theorem all3_spec : forall b c : bool,
     orb
