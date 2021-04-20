@@ -796,11 +796,11 @@ Inductive bin : Type :=
   | B0 (n : bin)
   | B1 (n : bin).
 
-Fixpoint incr (n:bin) : bin :=
-  match n with
+Fixpoint incr (m:bin) : bin :=
+  match m with
   | Z => B1 Z
-  | B0 m => B1 m
-  | B1 m => B0 (incr m)
+  | B0 n => B1 n
+  | B1 n => B0 (incr n)
   end.
 
 Fixpoint bin_to_nat (m:bin) : nat :=
