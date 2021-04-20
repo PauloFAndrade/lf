@@ -791,6 +791,42 @@ Qed.
     easier to prove, feel free to do so! *)
 
 (* FILL IN HERE *)
+Inductive bin : Type :=
+  | Z
+  | B0 (n : bin)
+  | B1 (n : bin).
+
+Fixpoint incr (n:bin) : bin :=
+  match n with
+  | Z => B1 Z
+  | B0 m => B1 m
+  | B1 m => B0 (incr m)
+  end.
+
+Fixpoint bin_to_nat (m:bin) : nat :=
+  match m with
+  | Z => O
+  | B0 n => (bin_to_nat n)*2
+  | B1 n => (bin_to_nat n)*2+1
+  end.
+  
+  
+Theorem bin_to_nat_pres_incr: forall b:bin,(bin_to_nat (incr b)) = S (bin_to_nat b).
+Proof.
+  intro b.
+  induction b.
+    -simpl.
+     reflexivity.
+    -simpl.
+     rewrite plus_comm.
+     simpl.
+     reflexivity.
+    -simpl.
+     rewrite IHb.
+     rewrite plus_comm.
+     simpl.
+     reflexivity.
+Qed.
 
 (* Do not modify the following line: *)
 Definition manual_grade_for_binary_commute : option (nat*string) := None.
