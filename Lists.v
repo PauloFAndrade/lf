@@ -395,10 +395,12 @@ Proof.
   reflexivity.
 Qed.
 
-
 Example test_alternate3:
   alternate [1;2;3] [4] = [1;4;2;3].
-  (* FILL IN HERE *) Admitted.
+Proof.
+  simpl.
+  reflexivity.
+Qed.
 
 Example test_alternate4:
   alternate [] [20;30] = [20;30].
