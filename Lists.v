@@ -313,8 +313,15 @@ Example test_nonzeros:
     reflexivity.
   Qed.
 
-Fixpoint oddmembers (l:natlist) : natlist
-  (* REPLACE THIS LINE WITH ":= _your_definition_ ." *). Admitted.
+Fixpoint oddmembers (l:natlist) : natlist :=
+match l with
+| nil => nil
+| 0 :: h => oddmembers h
+| h :: t => match (oddb h) with
+            | true => h :: (oddmembers t)
+            | false => (oddmembers t)
+            end
+end.
 
 Example test_oddmembers:
   oddmembers [0;1;0;2;3;0;0] = [1;3].
