@@ -372,8 +372,14 @@ Qed.
     of both lists at the same time.  One possible solution involves
     defining a new kind of pairs, but this is not the only way.)  *)
 
-Fixpoint alternate (l1 l2 : natlist) : natlist
-  (* REPLACE THIS LINE WITH ":= _your_definition_ ." *). Admitted.
+Fixpoint alternate (l1 l2 : natlist) : natlist :=
+match l1 with
+| nil => l2
+| m :: n => match l2 with
+            | nil => l1
+            | o :: p => m :: o :: (alternate n p)
+            end
+end.
 
 Example test_alternate1:
   alternate [1;2;3] [4;5;6] = [1;4;2;5;3;6].
