@@ -404,7 +404,10 @@ Qed.
 
 Example test_alternate4:
   alternate [] [20;30] = [20;30].
-  (* FILL IN HERE *) Admitted.
+Proof.
+  simpl.
+  reflexivity.
+Qed.
 (** [] *)
 
 (* ----------------------------------------------------------------- *)
