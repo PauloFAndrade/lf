@@ -330,8 +330,11 @@ Proof.
   reflexivity.
 Qed.
 
-Definition countoddmembers (l:natlist) : nat
-  (* REPLACE THIS LINE WITH ":= _your_definition_ ." *). Admitted.
+Definition countoddmembers (l:natlist) : nat :=
+match l with
+| nil => 0
+| h::t => length (oddmembers l)
+end.
 
 Example test_countoddmembers1:
   countoddmembers [1;0;3;1;4;5] = 4.
