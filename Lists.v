@@ -383,7 +383,10 @@ end.
 
 Example test_alternate1:
   alternate [1;2;3] [4;5;6] = [1;4;2;5;3;6].
-  (* FILL IN HERE *) Admitted.
+Proof.
+  simpl.
+  reflexivity.
+Qed.
 
 Example test_alternate2:
   alternate [1] [4;5;6] = [1;4;5;6].
