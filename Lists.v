@@ -464,13 +464,20 @@ Proof.
   reflexivity.
 Qed.
 
-Definition add (v : nat) (s : bag) : bag
-  (* REPLACE THIS LINE WITH ":= _your_definition_ ." *). Admitted.
+Definition add (v : nat) (s : bag) : bag := 
+v :: s.
 
 Example test_add1:                count 1 (add 1 [1;4;1]) = 3.
- (* FILL IN HERE *) Admitted.
+Proof.
+  simpl.
+  reflexivity.
+Qed.
+
 Example test_add2:                count 5 (add 1 [1;4;1]) = 0.
- (* FILL IN HERE *) Admitted.
+Proof.
+  simpl.
+  reflexivity.
+Qed.
 
 Definition member (v : nat) (s : bag) : bool
   (* REPLACE THIS LINE WITH ":= _your_definition_ ." *). Admitted.
