@@ -1079,7 +1079,19 @@ Qed.
 Theorem eqblist_refl : forall l:natlist,
   true = eqblist l l.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intro l.
+  induction l.
+    -simpl.
+     reflexivity.
+    -simpl.
+     induction n.
+      +simpl.
+       rewrite IHl.
+       reflexivity.
+      +simpl.
+       rewrite IHn.
+       reflexivity.
+Qed.
 (** [] *)
 
 (* ================================================================= *)
