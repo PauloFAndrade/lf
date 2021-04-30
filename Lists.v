@@ -572,8 +572,11 @@ Proof.
   reflexivity.
 Qed.
 
-Fixpoint subset (s1 : bag) (s2 : bag) : bool
-  (* REPLACE THIS LINE WITH ":= _your_definition_ ." *). Admitted.
+Fixpoint subset (s1 : bag) (s2 : bag) : bool :=
+match s1 with
+| nil => true
+| h :: t => andb(member h s2)(subset t (remove_one h s2))
+end.
 
 Example test_subset1:              subset [1;2] [2;1;4;1] = true.
  (* FILL IN HERE *) Admitted.
