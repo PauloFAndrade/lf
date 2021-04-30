@@ -479,14 +479,21 @@ Proof.
   reflexivity.
 Qed.
 
-Definition member (v : nat) (s : bag) : bool
-  (* REPLACE THIS LINE WITH ":= _your_definition_ ." *). Admitted.
+Definition member (v : nat) (s : bag) : bool := 
+match count v s with
+| 0 => false
+| Sn => true
+end.
 
 Example test_member1:             member 1 [1;4;1] = true.
- (* FILL IN HERE *) Admitted.
+Proof.
+  reflexivity.
+Qed.
 
 Example test_member2:             member 2 [1;4;1] = false.
-(* FILL IN HERE *) Admitted.
+Proof.
+  reflexivity.
+Qed.
 (** [] *)
 
 (** **** Exercise: 3 stars, standard, optional (bag_more_functions) 
