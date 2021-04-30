@@ -613,7 +613,19 @@ Proof.
      reflexivity.
 Qed.
 
-
+Theorem bag_theorem : forall (n: nat)(b: bag), count n (add n b) = S(count n b).
+Proof.
+  intros n s.
+  induction s.
+    -simpl.
+     rewrite eqb_reflexivity.
+     reflexivity.
+    -simpl.
+     rewrite eqb_reflexivity.
+     destruct (n0 =? n).
+      +reflexivity.
+      +reflexivity.
+Qed.
 
 (* Do not modify the following line: *)
 Definition manual_grade_for_add_inc_count : option (nat*string) := None.
