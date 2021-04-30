@@ -1042,8 +1042,18 @@ Qed.
     lists of numbers for equality.  Prove that [eqblist l l]
     yields [true] for every list [l]. *)
 
-Fixpoint eqblist (l1 l2 : natlist) : bool
-  (* REPLACE THIS LINE WITH ":= _your_definition_ ." *). Admitted.
+Fixpoint eqblist (l1 l2 : natlist) : bool := 
+match l1 with
+| nil => match l2 with
+         | nil => true
+         | h :: t => false
+        end
+| h :: t => match l2 with
+            | nil => false
+            | a :: b => if h=?a then (eqblist t b)
+                        else (false)
+            end
+end.
 
 Example test_eqblist1 :
   (eqblist nil nil = true).
