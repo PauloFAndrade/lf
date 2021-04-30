@@ -602,6 +602,19 @@ Proof.
 Qed.
 *)
 
+Lemma eqb_reflexivity : forall (n : nat) , n =? n = true.
+Proof.
+  intro n.
+  induction n.
+    -simpl.
+     reflexivity.
+    -simpl.
+     rewrite -> IHn.
+     reflexivity.
+Qed.
+
+
+
 (* Do not modify the following line: *)
 Definition manual_grade_for_add_inc_count : option (nat*string) := None.
 (** [] *)
