@@ -1022,7 +1022,18 @@ Qed.
 Lemma nonzeros_app : forall l1 l2 : natlist,
   nonzeros (l1 ++ l2) = (nonzeros l1) ++ (nonzeros l2).
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros l1 l2.
+  induction l1.
+    -simpl.
+     reflexivity.
+    -destruct n.
+     +simpl.
+      rewrite IHl1.
+      reflexivity.
+     +simpl.
+      rewrite IHl1.
+      reflexivity.
+Qed.
 (** [] *)
 
 (** **** Exercise: 2 stars, standard (eqblist) 
