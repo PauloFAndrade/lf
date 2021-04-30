@@ -515,7 +515,10 @@ end.
 
 Example test_remove_one1:
   count 5 (remove_one 5 [2;1;5;4;1]) = 0.
-  (* FILL IN HERE *) Admitted.
+Proof.
+  simpl.
+  reflexivity.
+Qed.
 
 Example test_remove_one2:
   count 5 (remove_one 5 [2;1;4;1]) = 0.
