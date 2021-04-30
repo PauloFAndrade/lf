@@ -993,7 +993,16 @@ Qed.
 Theorem rev_involutive : forall l : natlist,
   rev (rev l) = l.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intro l.
+  induction l.
+    -simpl.
+     reflexivity.
+    -simpl.
+     rewrite rev_app_distr.
+     rewrite IHl.
+     simpl.
+     reflexivity.
+Qed.
 
 (** There is a short solution to the next one.  If you find yourself
     getting tangled up, step back and try to look for a simpler
