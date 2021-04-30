@@ -424,8 +424,12 @@ Definition bag := natlist.
     Complete the following definitions for the functions
     [count], [sum], [add], and [member] for bags. *)
 
-Fixpoint count (v : nat) (s : bag) : nat
-  (* REPLACE THIS LINE WITH ":= _your_definition_ ." *). Admitted.
+Fixpoint count (v : nat) (s : bag) : nat :=
+match s with
+| nil => 0
+| h :: t => if h =? v then S(count v t)
+            else count v t
+end.
 
 (** All these proofs can be done just by [reflexivity]. *)
 
