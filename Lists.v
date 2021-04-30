@@ -1128,7 +1128,18 @@ Proof.
 Theorem remove_does_not_increase_count: forall (s : bag),
   (count 0 (remove_one 0 s)) <=? (count 0 s) = true.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intro s.
+  induction s.
+    -simpl.
+     reflexivity.
+    -destruct n.
+      +simpl.
+       rewrite leb_n_Sn.
+       reflexivity.
+      +simpl.
+       rewrite IHs.
+       reflexivity.
+Qed.
 (** [] *)
 
 (** **** Exercise: 3 stars, standard, optional (bag_count_sum) 
