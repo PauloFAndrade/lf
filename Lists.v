@@ -1304,7 +1304,13 @@ Qed.
 Theorem option_elim_hd : forall (l:natlist) (default:nat),
   hd default l = option_elim default (hd_error l).
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros l default.
+  destruct l.
+    -simpl.
+     reflexivity.
+    -simpl.
+     reflexivity.
+Qed.
 (** [] *)
 
 End NatList.
