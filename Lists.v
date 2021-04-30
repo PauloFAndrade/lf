@@ -1151,6 +1151,21 @@ Qed.
 (* FILL IN HERE
 
     [] *)
+    
+Theorem bag_count_sum: forall (n:nat)(b1 b2:bag), count n (sum b1 b2) = (count n b1) + (count n b2).
+Proof.
+  intros n b1 b2.
+  induction b1.
+    -simpl.
+     reflexivity.
+    -simpl.
+     destruct (n0 =? n).
+      +simpl.
+       rewrite IHb1.
+       reflexivity.
+      +rewrite IHb1.
+       reflexivity.
+Qed.
 
 (** **** Exercise: 4 stars, advanced (rev_injective) 
 
