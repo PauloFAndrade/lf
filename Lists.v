@@ -434,9 +434,13 @@ end.
 (** All these proofs can be done just by [reflexivity]. *)
 
 Example test_count1:              count 1 [1;2;3;1;4;1] = 3.
- (* FILL IN HERE *) Admitted.
+Proof.
+  reflexivity.
+Qed.
 Example test_count2:              count 6 [1;2;3;1;4;1] = 0.
- (* FILL IN HERE *) Admitted.
+Proof.
+  reflexivity.
+Qed.
 
 (** Multiset [sum] is similar to set [union]: [sum a b] contains all
     the elements of [a] and of [b].  (Mathematicians usually define
